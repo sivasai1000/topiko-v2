@@ -41,6 +41,8 @@ import brand from "@/public/assets/images/brand.svg"
 
 export default function Home() {
   const [activeSolution, setActiveSolution] = useState(null);
+  const scrollRef = React.useRef(null);
+
  
 
 
@@ -633,27 +635,40 @@ const storiesCol3 = stories.slice(8, 12);
           <Text as="p" className="font-['Inter'] text-[16px] md:text-[18px] text-white/60 mb-12 max-w-[780px] mx-auto">
             We're here to help you make the right decision. Explore our frequently asked questions and find answers below.
           </Text>
-          <div className="flex items-center justify-start md:justify-center gap-3 md:gap-5 bg-[#e9e9e9] rounded-full px-3 sm:px-4 py-2 overflow-x-auto whitespace-nowrap no-scrollbar mx-auto mb-12 w-full sm:w-fit">
-            {Object.keys(faqs).map((tab) => (
-              <button
-                key={tab}
-                onClick={() => {
-                  setActiveTab(tab);
-setOpenIndexes(faqs[tab].map((_, i) => i === 0)); // open first faq
+          <div
+  ref={scrollRef}
+  className="flex items-center justify-start md:justify-center gap-3 md:gap-5 
+  bg-[#e9e9e9] rounded-full px-3 sm:px-4 py-2 overflow-x-auto 
+  whitespace-nowrap no-scrollbar mx-auto mb-12 w-full sm:w-fit"
+>
+  {Object.keys(faqs).map((tab) => (
+    <button
+      key={tab}
+      onClick={(e) => {
+        setActiveTab(tab);
+        setOpenIndexes(faqs[tab].map((_, i) => i === 0));
 
-
-
-                }}
-                className={`flex-shrink-0 font-[Anek_Latin] font-semibold text-[14px] sm:text-[16px] md:text-[18px] px-4 sm:px-6 py-2 sm:py-3 rounded-full transition-all duration-300 ${activeTab === tab
-                  ? "bg-[#0e091f] text-white"
-                  : "text-[#0e091f] bg-transparent hover:bg-[#d8d8d8]"
-                  }`}
-              >
-                {tabNames[tab]}
-
-              </button>
-            ))}
-          </div>
+        // ⭐ Auto-center selected tab in mobile
+        if (window.innerWidth < 768) {
+          e.target.scrollIntoView({
+            behavior: "smooth",
+            inline: "center",
+            block: "nearest",
+          });
+        }
+      }}
+      className={`flex-shrink-0 font-[Anek_Latin] font-semibold text-[14px] sm:text-[16px] md:text-[18px] 
+        px-4 sm:px-6 py-2 sm:py-3 rounded-full transition-all duration-300
+        ${
+          activeTab === tab
+            ? "bg-[#0e091f] text-white"
+            : "text-[#0e091f] bg-transparent hover:bg-[#d8d8d8]"
+        }`}
+    >
+      {tabNames[tab]}
+    </button>
+  ))}
+</div>
 
           {/* FAQ List */}
           <div className="flex flex-col gap-4 max-w-[1200px] mx-auto">

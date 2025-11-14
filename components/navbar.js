@@ -1,10 +1,43 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
+
+  // ⭐ Simple Active Section Logic (No IntersectionObserver)
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ["home", "solutions", "pricing", "faq"];
+
+      let current = "home";
+
+      for (let id of sections) {
+        const el = document.getElementById(id);
+        if (el) {
+          const offsetTop = el.offsetTop - 150; 
+          if (window.scrollY >= offsetTop) {
+            current = id;
+          }
+        }
+      }
+
+      setActiveSection(current);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // ⭐ Active Link Styling
+  const navClass = (id) =>
+    activeSection === id
+      ? "text-[#FFFDF8]"
+      : "text-[rgba(255,253,248,0.6)] hover:text-[#FFFDF8]";
 
   return (
     <nav
@@ -16,7 +49,7 @@ const Navbar = () => {
         max-md:w-[90%] max-md:px-4 max-md:py-2
       "
     >
-      {/* Desktop / Tablet Navigation */}
+      {/* Desktop Navigation */}
       <ul
         className="
           hidden md:flex justify-between items-center w-full max-w-[620px]
@@ -26,21 +59,26 @@ const Navbar = () => {
         <li>
           <a
             href="#home"
-            className="font-inter text-[rgba(255,253,248,0.6)] text-[20px] font-medium hover:text-[#FFFDF8] transition-colors duration-300"
+            className={`font-inter text-[20px] font-medium transition-colors duration-300 ${navClass(
+              "home"
+            )}`}
           >
             Home
           </a>
         </li>
+
         <li>
           <a
             href="#solutions"
-            className="font-inter text-[rgba(255,253,248,0.6)] text-[20px] font-medium hover:text-[#FFFDF8] transition-colors duration-300"
+            className={`font-inter text-[20px] font-medium transition-colors duration-300 ${navClass(
+              "solutions"
+            )}`}
           >
             Solutions
           </a>
         </li>
 
-        {/* ✅ Center Logo */}
+        {/* Center Logo */}
         <li className="flex items-center justify-center gap-2">
           <img
             src="/assets/images/topikonav.svg"
@@ -61,22 +99,27 @@ const Navbar = () => {
         <li>
           <a
             href="#pricing"
-            className="font-inter text-[rgba(255,253,248,0.6)] text-[20px] font-medium hover:text-[#FFFDF8] transition-colors duration-300"
+            className={`font-inter text-[20px] font-medium transition-colors duration-300 ${navClass(
+              "pricing"
+            )}`}
           >
             Pricing
           </a>
         </li>
+
         <li>
           <a
             href="#faq"
-            className="font-inter text-[rgba(255,253,248,0.6)] text-[20px] font-medium hover:text-[#FFFDF8] transition-colors duration-300"
+            className={`font-inter text-[20px] font-medium transition-colors duration-300 ${navClass(
+              "faq"
+            )}`}
           >
             FAQ
           </a>
         </li>
       </ul>
 
-      {/* ✅ Mobile Navbar */}
+      {/* Mobile Navbar */}
       <div className="w-full flex items-center justify-between md:hidden">
         {/* Hamburger Icon */}
         <button
@@ -106,11 +149,10 @@ const Navbar = () => {
           </span>
         </div>
 
-        {/* Placeholder to balance spacing */}
         <div className="w-6 h-5"></div>
       </div>
 
-      {/* ✅ Slide-down menu for mobile */}
+      {/* ⭐ Mobile Dropdown Menu with Active Highlight */}
       {menuOpen && (
         <div
           className="
@@ -118,14 +160,41 @@ const Navbar = () => {
             bg-[rgba(20,20,25,0.95)] backdrop-blur-xl
             border border-white/10 rounded-2xl
             flex flex-col items-center gap-4 py-6
-            text-white text-[16px]
+            text-[16px]
             animate-fadeIn
           "
         >
-          <a href="#home" onClick={() => setMenuOpen(false)}>Home</a>
-          <a href="#solutions" onClick={() => setMenuOpen(false)}>Solutions</a>
-          <a href="#pricing" onClick={() => setMenuOpen(false)}>Pricing</a>
-          <a href="#faq" onClick={() => setMenuOpen(false)}>FAQ</a>
+          <a
+            href="#home"
+            className={`${navClass("home")} transition-colors`}
+            onClick={() => setMenuOpen(false)}
+          >
+            Home
+          </a>
+
+          <a
+            href="#solutions"
+            className={`${navClass("solutions")} transition-colors`}
+            onClick={() => setMenuOpen(false)}
+          >
+            Solutions
+          </a>
+
+          <a
+            href="#pricing"
+            className={`${navClass("pricing")} transition-colors`}
+            onClick={() => setMenuOpen(false)}
+          >
+            Pricing
+          </a>
+
+          <a
+            href="#faq"
+            className={`${navClass("faq")} transition-colors`}
+            onClick={() => setMenuOpen(false)}
+          >
+            FAQ
+          </a>
         </div>
       )}
     </nav>
