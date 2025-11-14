@@ -112,11 +112,13 @@ export default function Home() {
   );
 
 
-  const handleToggle = (index) => {
-    setOpenIndexes(prev =>
-      prev.map((isOpen, i) => (i === index ? !isOpen : isOpen))
-    );
-  };
+const handleToggle = (index) => {
+  setOpenIndexes(prev =>
+    prev.map((_, i) => i === index)
+  );
+};
+
+
 
 
   const cards = [
