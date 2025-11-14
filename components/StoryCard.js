@@ -4,30 +4,76 @@ import Text from "@/components/ui/globals/test";
 
 export default function StoryCard({ image, name, role, city, text }) {
   return (
-    <div className="bg-white rounded-2xl shadow-md p-6 w-full text-left border border-[#E8E8E8] transition-all duration-300 hover:shadow-xl">
-      {/* Top part */}
-      <div className="flex items-center gap-4 mb-4">
-        <img
-          src={image}
-          alt={name}
-          width={56}
-          height={56}
-          className="rounded-full object-cover"
-        />
-        <div>
-          <Text as="h5" className="font-semibold text-[#0E091F] text-[18px]">
-            {name}
-          </Text>
-          <Text as="p" className="text-[#0E091FB3] text-[14px]">
-            {role}, {city}
-          </Text>
-        </div>
-      </div>
+    <div
+  className="
+    w-full
+    bg-white
+    rounded-[20px]
+    p-4 sm:p-6
+    border border-[#12376914]
+    shadow-sm
+    flex flex-col
+    gap-3
+    text-left
+  "
+>
+  {/* Top Row */}
+  <div className="flex items-start gap-3 text-left mt-3">
+    <img
+      src={image}
+      alt={name}
+      className="
+        w-16 h-16
+        rounded-[12px]
+        border-[4px] border-[#F4F4F4]
+        bg-[#F4F4F4]
+        object-cover
+      "
+    />
 
-      {/* Story Text */}
-      <Text as="p" className="text-[#383247] leading-[24px] text-[15px]">
-        {text}
+    <div className="flex flex-col text-left">
+      <Text
+        as="h5"
+        className="
+          font-[Anek_Latin]
+          font-medium
+          text-[18px]
+          leading-[20px]
+          text-[#242424]
+        "
+      >
+        {name} – {role}
+      </Text>
+
+      <Text
+        as="p"
+        className="
+          font-[Anek_Latin]
+          font-normal
+          text-[14px]
+          leading-[18px]
+          text-[#0E091F8A]
+        "
+      >
+        {city}
       </Text>
     </div>
+  </div>
+
+  {/* Review Text */}
+  <Text
+    as="p"
+    className="
+      font-[Anek_Latin]
+      font-normal
+      text-[16px]
+      leading-[22px]
+      text-[#0E091F99]
+    "
+  >
+    “{text}”
+  </Text>
+</div>
+
   );
 }

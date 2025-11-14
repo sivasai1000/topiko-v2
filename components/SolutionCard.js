@@ -20,7 +20,7 @@ const SolutionCard = ({
       <div
         className="
           w-full h-[270px] sm:h-[300px] md:h-[340px]
-          bg-white flex items-center justify-center p-2
+          bg-white flex items-center justify-center  py-2
         "
       >
         <img

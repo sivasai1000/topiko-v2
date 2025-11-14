@@ -41,6 +41,8 @@ import brand from "@/public/assets/images/brand.svg"
 
 export default function Home() {
   const [activeSolution, setActiveSolution] = useState(null);
+ 
+
 
   function handleSolutionToggle(index) {
     setActiveSolution(activeSolution === index ? null : index);
@@ -113,17 +115,20 @@ export default function Home() {
       },
     ],
   };
+   const allFaqs = Object.values(faqs).flat();
   const [activeTab, setActiveTab] = useState("products");
-  const [openIndexes, setOpenIndexes] = useState(
-    faqs["products"].map((_, i) => i === 0)
-  );
-
+ const [openIndexes, setOpenIndexes] = useState(
+  // open the first item of the current active tab by default
+  faqs[activeTab].map((_, i) => i === 0)
+);
 
 const handleToggle = (index) => {
   setOpenIndexes(prev =>
-    prev.map((_, i) => i === index)
+    // toggle the clicked index; close every other index
+    prev.map((v, i) => (i === index ? !v : false))
   );
 };
+
 
   const cards = [
     {
@@ -202,29 +207,100 @@ const handleToggle = (index) => {
     },
   ];
 
-  const stories = [
-    {
-      image: "https://randomuser.me/api/portraits/women/68.jpg",
-      name: "Anita R.",
-      role: "Boutique Owner",
-      city: "Chennai",
-      text: "Topiko helped us set up our store and get orders within a week. Support was hands-on and very practical.",
-    },
-    {
-      image: "https://randomuser.me/api/portraits/men/45.jpg",
-      name: "Vikram S.",
-      role: "Café Owner",
-      city: "Bengaluru",
-      text: "We switched from a manual process to Topiko — bookings doubled and customer follow-up is effortless now.",
-    },
-    {
-      image: "https://randomuser.me/api/portraits/women/43.jpg",
-      name: "Meera P.",
-      role: "Digital Agency",
-      city: "Mumbai",
-      text: "HEBT shortened delivery time. White-label options helped us brand the apps for clients.",
-    },
-  ];
+const stories = [
+  {
+    image: "https://randomuser.me/api/portraits/men/11.jpg",
+    name: "Ramesh Kumar",
+    role: "Bejawada Tiffins",
+    city: "Vijayawada",
+    text: "Topiko is working great for me… regular check my tiffin menu there now.",
+  },
+  {
+    image: "https://randomuser.me/api/portraits/men/22.jpg",
+    name: "Mahesh Selvaraj",
+    role: "Mahesh Auto Spares",
+    city: "Coimbatore",
+    text: "Everything in one place with Topiko, makes my day easier.",
+  },
+  {
+    image: "https://randomuser.me/api/portraits/men/33.jpg",
+    name: "Aravind Pillai",
+    role: "AutoZone Auto Spares",
+    city: "Kochi",
+    text: "I just share the Disblay link… customers understand everything from that.",
+  },
+  {
+    image: "https://randomuser.me/api/portraits/women/44.jpg",
+    name: "Keerthi Shankar",
+    role: "KS Designer Boutique",
+    city: "Tirupati",
+    text: "Much cleaner than sending ten photos… Disblay is best.",
+  },
+
+  {
+    image: "https://randomuser.me/api/portraits/men/55.jpg",
+    name: "Manoj Sharma",
+    role: "Raj Décor & Interiors",
+    city: "Nagpur",
+    text: "Updating items is fast on Disblay, that’s why I’m sticking to it.",
+  },
+  {
+    image: "https://randomuser.me/api/portraits/women/66.jpg",
+    name: "Harini Nair",
+    role: "MyHome Handcrafts",
+    city: "Mysuru",
+    text: "Simple tool… Disblay made my daily product sharing easier.",
+  },
+  {
+    image: "https://randomuser.me/api/portraits/men/77.jpg",
+    name: "Dinesh Jain",
+    role: "Jain Digital Agency",
+    city: "Pune",
+    text: "Almost tripled our team productivity using HEBT, Happy Customers.",
+  },
+  {
+    image: "https://randomuser.me/api/portraits/men/88.jpg",
+    name: "Vinay R",
+    role: "Rao Home Furnitures",
+    city: "Kolkata",
+    text: "Ads worked perfect… got genuine calls.",
+  },
+
+  {
+    image: "https://randomuser.me/api/portraits/women/99.jpg",
+    name: "Savitha Mohan",
+    role: "Trends Beauty Parlour",
+    city: "Bhopal",
+    text: "Topiko dashboard is top class… I can check orders and update items quickly.",
+  },
+
+  {
+    image: "https://randomuser.me/api/portraits/men/9.jpg",
+    name: "Pradeep Varma",
+    role: "Varma Mobile Store",
+    city: "Visakhapatnam",
+    text: "I liked the themes in Topiko… changed it twice till my shop look felt right.",
+  },
+  {
+    image: "https://randomuser.me/api/portraits/women/69.jpg",
+    name: "Joseph Samuel",
+    role: "Samuel’s Food Corner",
+    city: "Chennai",
+    text: "The branding session made me rethink how I present my business… Much needed",
+  },
+  
+  // Duplicates to reach total 12
+  {
+    image: "https://randomuser.me/api/portraits/men/6.jpg",
+    name: "Duplicate — Vinay R",
+    role: "Rao Home Furnitures",
+    city: "Kolkata",
+    text: "Topiko ads gave us verified leads — very helpful.",
+  },
+];
+const storiesCol1 = stories.slice(0, 4);
+const storiesCol2 = stories.slice(4, 8);
+const storiesCol3 = stories.slice(8, 12);
 
   return (
     <div >
@@ -366,116 +442,101 @@ const handleToggle = (index) => {
 
         </Box>
       </SectionContainer>
-      <SectionContainer
-        id="stories"
-        sectionClassName="bg-white py-10 relative overflow-hidden text-center"
+   <SectionContainer
+  id="stories"
+  sectionClassName="bg-white py-10 relative overflow-hidden text-center"
+>
+  <Box>
+    <Text as="h2" className="!text-center">
+      Stories of Growth
+    </Text>
+    <Text as="h3" className="!text-center mx-auto md:w-[800px] mb-15">
+      Real businesses. Real results — what our customers say about Topiko.
+    </Text>
+
+    <Box className="grid grid-cols-1 md:grid-cols-3 gap-8 relative h-[660px] overflow-hidden px-4">
+
+      {/* Column 1 */}
+      <Box
+        className="flex flex-col gap-6"
+        style={{ animation: "scrollLoop 90s linear infinite" }}
       >
-        <Box >
-          <Text as="h2" className="!text-center">
-            Stories of Growth
-          </Text>
-          <Text as="h3" className="!text-center mx-auto md:w-[800px] mb-15">
-            Real businesses. Real results — what our customers say about Topiko.
-          </Text>
-          <Box className="grid grid-cols-1 md:grid-cols-3 gap-8 relative h-[660px] overflow-hidden px-4">
+        {[...Array(2)].map((_, i) => (
+          <React.Fragment key={i}>
+            {storiesCol1.map((story, j) => (
+              <StoryCard key={`c1-${i}-${j}`} {...story} />
+            ))}
+          </React.Fragment>
+        ))}
+      </Box>
 
-            {/* Column 1 */}
-            <Box
-              className="flex flex-col gap-6"
-              style={{
-                animation: "scrollLoop 90s linear infinite",
-              }}
-            >
-              {[...Array(2)].map((_, i) => (
-                <React.Fragment key={i}>
-                  {stories.map((story, j) => (
-                    <StoryCard key={`c1-${i}-${j}`} {...story} />
-                  ))}
-                </React.Fragment>
-              ))}
-            </Box>
+      {/* Column 2 */}
+      <Box
+        className="flex flex-col gap-6"
+        style={{ animation: "scrollLoop 55s linear infinite" }}
+      >
+        {[...Array(2)].map((_, i) => (
+          <React.Fragment key={i}>
+            {storiesCol2.map((story, j) => (
+              <StoryCard key={`c2-${i}-${j}`} {...story} />
+            ))}
+          </React.Fragment>
+        ))}
+      </Box>
 
-            {/* Column 2 */}
-            <Box
-              className="flex flex-col gap-6"
-              style={{
-                animation: "scrollLoop 55s linear infinite",
-              }}
-            >
-              {[...Array(2)].map((_, i) => (
-                <React.Fragment key={i}>
-                  {stories
-                    .slice()
-                    .reverse()
-                    .map((story, j) => (
-                      <StoryCard key={`c2-${i}-${j}`} {...story} />
-                    ))}
-                </React.Fragment>
-              ))}
-            </Box>
+      {/* Column 3 */}
+      <Box
+        className="flex flex-col gap-6"
+        style={{ animation: "scrollLoop 40s linear infinite" }}
+      >
+        {[...Array(2)].map((_, i) => (
+          <React.Fragment key={i}>
+            {storiesCol3.map((story, j) => (
+              <StoryCard key={`c3-${i}-${j}`} {...story} />
+            ))}
+          </React.Fragment>
+        ))}
+      </Box>
 
-            {/* Column 3 */}
-            <Box
-              className="flex flex-col gap-6"
-              style={{
-                animation: "scrollLoop 40s linear infinite",
-              }}
-            >
-              {[...Array(2)].map((_, i) => (
-                <React.Fragment key={i}>
-                  {stories.map((story, j) => (
-                    <StoryCard key={`c3-${i}-${j}`} {...story} />
-                  ))}
-                </React.Fragment>
-              ))}
-            </Box>
+      {/* Gradient masks */}
+      <Box className="absolute top-0 left-0 w-full h-28 bg-gradient-to-b from-white to-transparent pointer-events-none" />
+      <Box className="absolute bottom-0 left-0 w-full h-28 bg-gradient-to-t from-white to-transparent pointer-events-none" />
+    </Box>
 
-            {/* Gradient Masks */}
-            <Box className="absolute top-0 left-0 w-full h-28 bg-gradient-to-b from-white to-transparent pointer-events-none" />
-            <Box className="absolute bottom-0 left-0 w-full h-28 bg-gradient-to-t from-white to-transparent pointer-events-none" />
-          </Box>
-
-          {/* Stats Row */}
-          <Box className="flex justify-center w-full mt-16">
-            <Box className="w-full rounded-[28px] bg-gradient-to-r from-[#6738E81A] to-[#BBA4FF1A] 
+    {/* Stats Row */}
+    <Box className="flex justify-center w-full mt-16">
+      <Box className="w-full rounded-[28px] bg-gradient-to-r from-[#6738E81A] to-[#BBA4FF1A] 
         flex flex-col md:flex-row items-stretch text-center px-6 md:px-12 py-5 gap-6 md:gap-0">
 
-              {/* Stat 1 */}
-              <Box className="flex-1 flex flex-col items-center justify-start px-2">
-                <Text as="h2" >
-                  10k<span className="text-[#6738E8]">+</span>
-                </Text>
-                <Text as="p" className="text-[#0E091F99]  text-[14px] sm:text-[15px] md:text-[16px] leading-[22px]">
-                  Deployed 10k+ digital assets and experiences
-                </Text>
-              </Box>
-
-              {/* Stat 2 */}
-              <Box className="flex-1 flex flex-col items-center justify-start px-2">
-                <Text as="h2" >
-                  7–14<span className="text-[#6738E8]"> Days</span>
-                </Text>
-                <Text as="p" className="text-[#0E091F99]  text-[14px] sm:text-[15px] md:text-[16px] leading-[22px]">
-                  Average time to launch from brief to live — faster than ever
-                </Text>
-              </Box>
-
-              {/* Stat 3 */}
-              <Box className="flex-1 flex flex-col items-center justify-start px-2">
-                <Text as="h2" >
-                  98<span className="text-[#6738E8]">%</span>
-                </Text>
-                <Text as="p" className="text-[#0E091F99]  text-[14px] sm:text-[15px] md:text-[16px] leading-[22px]">
-                  Customer satisfaction — businesses recommend Topiko to others
-                </Text>
-              </Box>
-
-            </Box>
-          </Box>
-
-
+        {/* Stat 1 */}
+        <Box className="flex-1 flex flex-col items-center justify-start px-2">
+          <Text as="h2">10k<span className="text-[#6738E8]">+</span></Text>
+          <Text as="p" className="text-[#0E091F99] text-[14px] sm:text-[15px] md:text-[16px] leading-[22px]">
+            Deployed 10k+ digital assets and experiences
+          </Text>
         </Box>
-      </SectionContainer>
+
+        {/* Stat 2 */}
+        <Box className="flex-1 flex flex-col items-center justify-start px-2">
+          <Text as="h2">7–14<span className="text-[#6738E8]"> Days</span></Text>
+          <Text as="p" className="text-[#0E091F99] text-[14px] sm:text-[15px] md:text-[16px] leading-[22px]">
+            Average time to launch from brief to live — faster than ever
+          </Text>
+        </Box>
+
+        {/* Stat 3 */}
+        <Box className="flex-1 flex flex-col items-center justify-start px-2">
+          <Text as="h2">98<span className="text-[#6738E8]">%</span></Text>
+          <Text as="p" className="text-[#0E091F99] text-[14px] sm:text-[15px] md:text-[16px] leading-[22px]">
+            Customer satisfaction — businesses recommend Topiko to others
+          </Text>
+        </Box>
+
+      </Box>
+    </Box>
+  </Box>
+</SectionContainer>
+
 
    <SectionContainer id="pricing">
   <Box className="container">
@@ -578,7 +639,9 @@ const handleToggle = (index) => {
                 key={tab}
                 onClick={() => {
                   setActiveTab(tab);
-                  setOpenIndexes(faqs[tab].map((_, i) => i === 0));
+setOpenIndexes(faqs[tab].map((_, i) => i === 0)); // open first faq
+
+
 
                 }}
                 className={`flex-shrink-0 font-[Anek_Latin] font-semibold text-[14px] sm:text-[16px] md:text-[18px] px-4 sm:px-6 py-2 sm:py-3 rounded-full transition-all duration-300 ${activeTab === tab
@@ -594,7 +657,8 @@ const handleToggle = (index) => {
 
           {/* FAQ List */}
           <div className="flex flex-col gap-4 max-w-[1200px] mx-auto">
-            {faqs[activeTab].map((item, index) => (
+            {faqs[activeTab]
+.map((item, index) => (
               <div
                 key={index}
                 className={`rounded-[24px] bg-[#242933] p-6 text-left transition-all duration-300 ${openIndexes[index] ? "shadow-lg" : ""}`}
@@ -637,6 +701,24 @@ const handleToggle = (index) => {
 
           </div>
         </Box>
+        <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": Object.values(faqs).flat()
+.map((item) => ({
+          "@type": "Question",
+          "name": item.q,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": item.a,
+          },
+        })),
+      }),
+    }}
+  />
       </SectionContainer>
       <SectionContainer id="partners" sectionClassName="bg-white py-16">
         <Box className="mx-auto  px-2">
@@ -769,10 +851,10 @@ const handleToggle = (index) => {
             {/* Start Now Button */}
             <Grid.Col>
               <VisitButton
-               
+               variant="blue"
                 isOn={activeSolution === 'start'}  
                 onToggle={() => handleSolutionToggle('start')} 
-                label={`Get Started`}
+                label={`Start Now`}
               />
             </Grid.Col>
 

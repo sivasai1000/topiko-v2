@@ -17,7 +17,11 @@ export default function VisitButton({
   const buttonBg = variant === "pink"
     ? isOn
       ? "bg-white"   // ON gradient
-      : "bg-white"                                       // OFF white
+      : "bg-white"   
+     : variant === "blue"
+      ? isOn
+        ? "bg-[#CD56D0]"
+        : "bg-[#CD56D0]"                                    // OFF white
     : isOn
       ? "bg-[#262626]"
       : "bg-[#F6F7F9]";
@@ -27,6 +31,10 @@ export default function VisitButton({
     ? isOn
       ? "bg-gradient-to-r from-[#D953FF] to-[#FF70A2]"                                   // ON dark circle
       : "bg-gradient-to-r from-[#D953FF] to-[#FF70A2]"   // OFF gradient
+    : variant === "blue"
+      ? isOn
+        ? "bg-white"
+        : "bg-white"  
     : isOn
       ? "bg-white"
       : "bg-[#262626]";
@@ -37,6 +45,10 @@ export default function VisitButton({
       ? isOn
         ? whiteCross     // ON → pink arrow
         : blackArrow    // OFF → black arrow
+       : variant === "blue"
+      ? isOn
+        ? whiteArrow
+        : pinkarrow
       : isOn
         ? whiteArrow
         : blackArrow;
@@ -47,9 +59,16 @@ export default function VisitButton({
       ? isOn
         ? "text-[#262626]"      // ON → white text
         : "text-[#262626]"  // OFF → black text
+         : variant === "blue"
+      ? isOn
+        ? "text-white"
+        : "text-white"
       : isOn
         ? "text-white"
         : "text-[#262626]";
+
+
+
 
   return (
     <button

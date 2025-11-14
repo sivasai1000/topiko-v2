@@ -26,7 +26,7 @@ const Navbar = () => {
         <li>
           <a
             href="#home"
-            className="font-inter text-[#FFFDF8] text-[20px] font-medium hover:text-#FFFDF8-400 transition-colors duration-300"
+            className="font-inter text-[rgba(255,253,248,0.6)] text-[20px] font-medium hover:text-[#FFFDF8] transition-colors duration-300"
           >
             Home
           </a>
@@ -34,7 +34,7 @@ const Navbar = () => {
         <li>
           <a
             href="#solutions"
-            className="font-inter text-[#FFFDF8] text-[20px] font-medium hover:text-#FFFDF8-400 transition-colors duration-300"
+            className="font-inter text-[rgba(255,253,248,0.6)] text-[20px] font-medium hover:text-[#FFFDF8] transition-colors duration-300"
           >
             Solutions
           </a>
@@ -61,7 +61,7 @@ const Navbar = () => {
         <li>
           <a
             href="#pricing"
-            className="font-inter text-[#FFFDF8] text-[20px] font-medium hover:text-#FFFDF8-400 transition-colors duration-300"
+            className="font-inter text-[rgba(255,253,248,0.6)] text-[20px] font-medium hover:text-[#FFFDF8] transition-colors duration-300"
           >
             Pricing
           </a>
@@ -69,7 +69,7 @@ const Navbar = () => {
         <li>
           <a
             href="#faq"
-            className="font-inter text-[#FFFDF8] text-[20px] font-medium hover:text-#FFFDF8-400 transition-colors duration-300"
+            className="font-inter text-[rgba(255,253,248,0.6)] text-[20px] font-medium hover:text-[#FFFDF8] transition-colors duration-300"
           >
             FAQ
           </a>
