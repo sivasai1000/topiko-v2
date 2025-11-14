@@ -166,7 +166,7 @@ const handleToggle = (index) => {
   const pricecards = [
     {
       image: disblayicon.src,
-      title: "Display",
+      title: "Disblay",
       description: "Quick digital catalog and link-based mini-site.",
       button_title: "disblay",
       icon: disblayicon,
@@ -504,7 +504,7 @@ const handleToggle = (index) => {
                 <div className="tp-icon-wrapper">
                   <img src={card.image} alt={`${card.title} Icon`} className="w-14 h-14" />
                 </div>
-                <Text  as="h5" className="!text-start mx-auto ">
+                <Text  as="h5" className="!text-start  ">
                   {card.title}
                 </Text>
               </div>
