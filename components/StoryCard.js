@@ -1,6 +1,5 @@
 "use client";
-
-import Image from "next/image";
+import React from "react";
 import Text from "@/components/ui/globals/test";
 
 export default function StoryCard({ image, name, role, city, text }) {
@@ -8,7 +7,7 @@ export default function StoryCard({ image, name, role, city, text }) {
     <div className="bg-white rounded-2xl shadow-md p-6 w-full text-left border border-[#E8E8E8] transition-all duration-300 hover:shadow-xl">
       {/* Top part */}
       <div className="flex items-center gap-4 mb-4">
-        <Image
+        <img
           src={image}
           alt={name}
           width={56}
