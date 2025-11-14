@@ -14,7 +14,7 @@ const SolutionCard = ({
   onToggle,
 }) => {
   return (
-    <div className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between overflow-hidden px-2 h-full">
+    <div className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300  flex flex-col justify-between overflow-hidden px-2 h-full">
 
       {/* Image */}
       <div

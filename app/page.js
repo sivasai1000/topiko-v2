@@ -191,7 +191,7 @@ export default function Home() {
       description: "AI-powered app and web builder for agencies and enterprises.",
       button_title: "hebt",
       icon: hebticon,
-      price: "Custom (Based on Requirements)",
+      price: "Fully Customized ",
       bgClass: "bg-gradient-to-r from-[#EAE8FF] to-[#E6E8FF]",
     },
   ];
@@ -276,12 +276,10 @@ export default function Home() {
         </Box>
       </SectionContainer>
       <SectionContainer sectionClassName="bg-[#f9f7fc] py-16 text-center">
-
         <Box >
 
-          {/* Heading */}
           <Text as="h2" className="!text-center  md:w-[800px]">
-            Digital isn’t one size fits all and neither is Topiko
+            Digital isn’t one size fits all and, neither is Topiko.
           </Text>
 
 
@@ -330,12 +328,11 @@ export default function Home() {
       </SectionContainer>
       <SectionContainer id="solutions" sectionClassName="bg-[#F4F5F8] py-5  text-center">
         <Box>
-
-          <Text as="h2" className="!text-center text-[#0E091F] font-bold text-[32px] md:text-[52px] mb-4">
+          <Text as="h2" className="!text-center  md:w-[874px] ">
             Solutions for Every Stage of Growth
           </Text>
 
-          <Text as="h3" className="!text-center text-[#383247] text-[18px] leading-[28px] mb-12 max-w-[800px] mx-auto">
+          <Text as="h3" className="!text-center mx-auto md:w-[800px] mb-15">
             From your first online launch to full-scale enterprise operations Topiko grows with you.
             Our adaptive platform evolves to match your business needs, ensuring every phase feels
             seamless, scalable, and future-ready.
@@ -367,22 +364,13 @@ export default function Home() {
         id="stories"
         sectionClassName="bg-white py-10 relative overflow-hidden text-center"
       >
-
         <Box >
-
-          {/* Section Heading */}
           <Text as="h2" className="!text-center">
             Stories of Growth
           </Text>
-
-          <Text
-            as="p"
-            className="text-[#383247] text-[18px] mb-16 max-w-[800px] mx-auto !text-center"
-          >
+          <Text as="h3" className="!text-center mx-auto md:w-[800px] mb-15">
             Real businesses. Real results — what our customers say about Topiko.
           </Text>
-
-          {/* Auto-scrolling Grid */}
           <Box className="grid grid-cols-1 md:grid-cols-3 gap-8 relative h-[660px] overflow-hidden px-4">
 
             {/* Column 1 */}
@@ -448,30 +436,30 @@ export default function Home() {
 
               {/* Stat 1 */}
               <Box className="flex-1 flex flex-col items-center justify-start px-2">
-                <Text as="h2" className="font-['Anek_Latin'] font-semibold text-[32px] sm:text-[40px] md:text-[48px] text-[#0E091F]">
+                <Text as="h2" >
                   10k<span className="text-[#6738E8]">+</span>
                 </Text>
-                <Text as="p" className="text-[#0E091F99] mt-2 text-[14px] sm:text-[15px] md:text-[16px] leading-[22px]">
+                <Text as="p" className="text-[#0E091F99]  text-[14px] sm:text-[15px] md:text-[16px] leading-[22px]">
                   Deployed 10k+ digital assets and experiences
                 </Text>
               </Box>
 
               {/* Stat 2 */}
               <Box className="flex-1 flex flex-col items-center justify-start px-2">
-                <Text as="h2" className="font-['Anek_Latin'] font-semibold text-[32px] sm:text-[40px] md:text-[48px] text-[#0E091F]">
+                <Text as="h2" >
                   7–14<span className="text-[#6738E8]"> Days</span>
                 </Text>
-                <Text as="p" className="text-[#0E091F99] mt-2 text-[14px] sm:text-[15px] md:text-[16px] leading-[22px]">
+                <Text as="p" className="text-[#0E091F99]  text-[14px] sm:text-[15px] md:text-[16px] leading-[22px]">
                   Average time to launch from brief to live — faster than ever
                 </Text>
               </Box>
 
               {/* Stat 3 */}
               <Box className="flex-1 flex flex-col items-center justify-start px-2">
-                <Text as="h2" className="font-['Anek_Latin'] font-semibold text-[32px] sm:text-[40px] md:text-[48px] text-[#0E091F]">
+                <Text as="h2" >
                   98<span className="text-[#6738E8]">%</span>
                 </Text>
-                <Text as="p" className="text-[#0E091F99] mt-2 text-[14px] sm:text-[15px] md:text-[16px] leading-[22px]">
+                <Text as="p" className="text-[#0E091F99]  text-[14px] sm:text-[15px] md:text-[16px] leading-[22px]">
                   Customer satisfaction — businesses recommend Topiko to others
                 </Text>
               </Box>
@@ -482,63 +470,86 @@ export default function Home() {
 
         </Box>
       </SectionContainer>
-      <SectionContainer id="pricing">
+
+   <SectionContainer id="pricing">
   <Box className="container">
-    <Text as="h2" className="!text-center md:w-[800px] text-3xl sm:text-4xl font-semibold mb-4">
+     <Text as="h2" className="!text-center  md:w-[874px] ">
       Pricing Built to Suit all Types of Business
     </Text>
 
-    <Text as="p" className="text-center text-xl sm:text-2xl text-gray-600 mb-8">
+   
+
+   <Text as="h3" className="!text-center mx-auto md:w-[800px] mb-8">
       Choose the plan that fits your stage. Start small, scale anytime.
     </Text>
 
     {/* Pricing Grid */}
-    <Grid sm={1} md={2} lg={2} className=" gap-8">
+    <Grid sm={1} md={2} lg={2} className="gap-8">
       {pricecards.map((card, index) => (
         <Grid.Col key={index}>
           <div
-            className={` relative rounded-2xl border border-gray-200 p-6 sm:p-7 flex flex-col justify-between ${card.bgClass}`}
+            className={`relative rounded-2xl border border-gray-200 p-6 sm:p-7 flex flex-col justify-between ${card.bgClass}`}
           >
             {/* Header */}
-            <div className=" mb-4 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
+            <div className="mb-4 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
               
               {/* Icon + Title */}
-              <div className=" flex items-center gap-3">
+              <div className="flex items-center gap-3">
                 <div className="tp-icon-wrapper">
                   <img src={card.image} alt={`${card.title} Icon`} className="w-14 h-14" />
                 </div>
-                <h3 className=" text-2xl font-semibold text-[#0E091F]">
+                <Text  as="h5" className="!text-start mx-auto ">
                   {card.title}
-                </h3>
+                </Text>
               </div>
 
-              {/* Price (fixed for mobile) */}
-              <div className=" flex flex-col sm:flex-row items-center sm:items-end gap-0 sm:gap-1 text-center sm:text-right">
-  <span className="text-2xl font-bold text-[#0E091F] leading-[28px]">
-    {card.price}
-  </span>
-
-  {card.title !== "HEBT" && (
-    <span className="text-sm font-normal text-gray-600 leading-[18px]">
-      /year
-    </span>
-  )}
-</div>
-
+              {/* Desktop Price */}
+              <div className="hidden sm:flex flex-row items-end gap-1 text-right">
+                <span className="text-2xl font-bold text-[#0E091F]">{card.price}</span>
+                {card.title !== "HEBT" && (
+                  <span className="text-sm font-normal text-gray-600">/year</span>
+                )}
+              </div>
             </div>
 
             {/* Bottom */}
-            <div className=" flex flex-col sm:flex-row justify-between items-center gap-6">
-              <p className=" text-base text-gray-700 flex-1">
+            <div className="flex flex-col sm:flex-row justify-between items-center gap-6">
+
+              {/* Description */}
+              <p className="text-base text-gray-700 flex-1">
                 {card.description}
               </p>
 
-              {/* Visit Button */}
-              <VisitButton
-                isOn={activeSolution === index}
-                onToggle={() => handleSolutionToggle(index)}
-                label="Get Started"
-              />
+              {/* Desktop Button */}
+              <div className="hidden sm:flex">
+                <VisitButton
+                  isOn={activeSolution === index}
+                  onToggle={() => handleSolutionToggle(index)}
+                  label="Get Started"
+                />
+                
+              </div>
+
+              {/* MOBILE: Price + Button in one row */}
+              <div className="flex sm:hidden w-full justify-between items-center">
+
+                {/* Mobile Price */}
+                <span className="text-md font-bold text-[#0E091F]">
+                  {card.price}
+                  {card.title !== "HEBT" && (
+                    <span className="text-sm font-normal text-gray-600"> /year</span>
+                  )}
+                </span>
+
+                {/* Mobile Button */}
+                <VisitButton
+                  isOn={activeSolution === index}
+                  onToggle={() => handleSolutionToggle(index)}
+                  label="Get Started"
+                />
+
+              </div>
+
             </div>
           </div>
         </Grid.Col>
@@ -612,6 +623,7 @@ export default function Home() {
               Contact us! We will be happy to help you
             </p>
             <VisitButton
+             variant="pink"
               isOn={activeSolution === 'faq-call'}
               onToggle={() => handleSolutionToggle('faq-call')}
               label="Schedule a Call"
@@ -654,6 +666,7 @@ export default function Home() {
               {/* CTA BUTTON (same VisitButton toggle UI) */}
               <Box className="mt-8">
                 <VisitButton
+                 variant="pink"
                   isOn={activeSolution === 'partner-call'}
                   onToggle={() => handleSolutionToggle('partner-call')}
                   label="Schedule a Call"
@@ -699,10 +712,14 @@ export default function Home() {
               {/* CARD 2 */}
               <Box
                 className="
-            w-full bg-gradient-to-r from-[#E4FAF1] to-[#E4FAF100]
-            rounded-2xl border-[6px] border-white p-6
-            shadow-[0_83px_111px_rgba(0,0,0,0.03),0_3px_6px_rgba(81,82,86,0.14),0_22px_22px_rgba(97,97,97,0.05)]
-            backdrop-blur-[55px]
+                 w-full 
+    bg-[linear-gradient(99.82deg,#EFFAE4_-21.85%,rgba(239,250,228,0)_100.56%)]
+    rounded-2xl border-[6px] border-white p-6
+    shadow-[0_83px_111px_rgba(0,0,0,0.03),0_3px_6px_rgba(81,82,86,0.14),0_22px_22px_rgba(97,97,97,0.05)]
+    backdrop-blur-[55px]
+               
+
+           
           "
               >
                 <Box className="flex items-center gap-4 mb-3">
@@ -734,11 +751,11 @@ export default function Home() {
 
       <SectionContainer sectionClassName="w-full  bg-white">
         <Box className="w-full  text-center bg-[#f4f5f8] rounded-[36px] p-3 md:p-16 flex flex-col items-center justify-center gap-6">
-          <Text as="h2" className="font-['Anek_Latin'] font-bold text-[36px] md:text-[52px] leading-[58px] text-[#0E091F]">
+          <Text as="h2" className="!text-center  md:w-[874px] ">
             Let’s Build Something That Fits You
           </Text>
 
-          <Text as="p" className="font-['Inter'] text-[16px] md:text-[18px] leading-[28px] text-[#383247]">
+            <Text as="h3" className="!text-center mx-auto md:w-[800px] ">
             Get your tailor-made digital solution, simple to start, designed to grow.
           </Text>
 
@@ -746,17 +763,19 @@ export default function Home() {
             {/* Start Now Button */}
             <Grid.Col>
               <VisitButton
-                isOn={activeSolution === 'start'}  // Use a string to check the active state
-                onToggle={() => handleSolutionToggle('start')} // Toggle for "Get Started"
+               
+                isOn={activeSolution === 'start'}  
+                onToggle={() => handleSolutionToggle('start')} 
                 label={`Get Started`}
               />
             </Grid.Col>
 
-            {/* Talk to Expert Button */}
+           
             <Grid.Col>
               <VisitButton
-                isOn={activeSolution === 'expert'} // Use a string for "Talk to Expert"
-                onToggle={() => handleSolutionToggle('expert')} // Toggle for "Talk to Expert"
+               variant="pink"
+                isOn={activeSolution === 'expert'} 
+                onToggle={() => handleSolutionToggle('expert')} 
                 label={`Talk to Expert`}
               />
             </Grid.Col>

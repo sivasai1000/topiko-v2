@@ -12,7 +12,6 @@ const FeatureCard = ({
   return (
     <div className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between  overflow-hidden px-2 ">
 
-{/* Image Box — perfectly square & responsive */}
 <div className="w-full aspect-square bg-white flex items-center justify-center overflow-hidden p-2">
   <img
     src={image}
@@ -21,7 +20,6 @@ const FeatureCard = ({
   />
 </div>
 
-      {/* Content */}
       <div className="p-2 flex flex-col justify-between flex-grow text-center ">
         <div>
          

@@ -3,8 +3,54 @@
 import Image from "next/image";
 import whiteArrow from "@/public/assets/images/blackscroll2.svg";
 import blackArrow from "@/public/assets/images/whitescroll2.svg";
+import pinkarrow from "@/public/assets/images/pinkarrow.svg";
+import whiteCross from "@/public/assets/images/white-cross.svg"
 
-export default function VisitButton({ isOn, onToggle, label = "Visit" }) {
+export default function VisitButton({ 
+  isOn, 
+  onToggle, 
+  label = "Visit",
+  variant = "default"
+}) {
+
+  /** BUTTON BACKGROUND */
+  const buttonBg = variant === "pink"
+    ? isOn
+      ? "bg-white"   // ON gradient
+      : "bg-white"                                       // OFF white
+    : isOn
+      ? "bg-[#262626]"
+      : "bg-[#F6F7F9]";
+
+  /** CIRCLE BACKGROUND */
+  const circleBg = variant === "pink"
+    ? isOn
+      ? "bg-gradient-to-r from-[#D953FF] to-[#FF70A2]"                                   // ON dark circle
+      : "bg-gradient-to-r from-[#D953FF] to-[#FF70A2]"   // OFF gradient
+    : isOn
+      ? "bg-white"
+      : "bg-[#262626]";
+
+  /** ARROW ICON */
+  const arrowIcon =
+    variant === "pink"
+      ? isOn
+        ? whiteCross     // ON → pink arrow
+        : blackArrow    // OFF → black arrow
+      : isOn
+        ? whiteArrow
+        : blackArrow;
+
+  /** TEXT COLOR */
+  const textColor =
+    variant === "pink"
+      ? isOn
+        ? "text-[#262626]"      // ON → white text
+        : "text-[#262626]"  // OFF → black text
+      : isOn
+        ? "text-white"
+        : "text-[#262626]";
+
   return (
     <button
       onClick={onToggle}
@@ -15,8 +61,8 @@ export default function VisitButton({ isOn, onToggle, label = "Visit" }) {
         border border-[#E2E4E97A]
         shadow-[0px_3px_6px_0px_#00000014]
         overflow-hidden transition-all duration-300
-        ${isOn ? "bg-[#262626]" : "bg-[#F6F7F9]"}
-        pl-[32px] pr-[32px]   /* reduced padding */
+        ${buttonBg}
+        pl-[32px] pr-[32px]
       `}
     >
       {/* Sliding Circle */}
@@ -26,31 +72,26 @@ export default function VisitButton({ isOn, onToggle, label = "Visit" }) {
           w-[36px] h-[36px] md:w-[42px] md:h-[42px]
           rounded-full flex items-center justify-center
           transition-all duration-300
-          ${isOn
-            ? "right-[4px] bg-white shadow-[0px_3px_6px_0px_#00000014]"
-            : "left-[4px] bg-[#262626] shadow-[2px_4px_5px_0px_#FFFFFF1F_inset]"
-          }
+          ${isOn ? "right-[4px]" : "left-[4px]"}
+          ${circleBg}
         `}
       >
         <Image
-          src={isOn ? whiteArrow : blackArrow}
+          src={arrowIcon}
           alt="arrow"
           className="w-[16px] h-[16px] md:w-[18px] md:h-[18px]"
         />
       </span>
 
-      {/* Sliding Label */}
+      {/* Label */}
       <span
         className={`
           font-inter font-medium
           text-[14px] md:text-[16px]
-          leading-[20px] md:leading-[22px]
-          whitespace-nowrap
           transition-transform duration-300
-          ${isOn 
-            ? "translate-x-[-20px] text-white" 
-            : "translate-x-[20px] text-[#262626]"
-          }
+          whitespace-nowrap
+          ${isOn ? "translate-x-[-20px]" : "translate-x-[20px]"}
+          ${textColor}
         `}
       >
         {label}

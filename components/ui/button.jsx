@@ -35,7 +35,7 @@ const buttonVariants = cva(
         icon: "size-9",
         "icon-sm": "size-8",
         "icon-lg": "size-10",
-        gradient: "w-[220px] sm:w-[260px] md:w-[320px] lg:w-[352px] h-[54px] sm:h-[60px] md:h-[68px]"
+        gradient: "w-[220px] sm:w-[260px] md:w-[320px] font-[32px]    lg:w-[352px] h-[54px] sm:h-[60px] md:h-[68px] text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22px]"
       },
     },
     defaultVariants: {
