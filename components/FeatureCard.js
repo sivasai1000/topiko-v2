@@ -12,7 +12,7 @@ const FeatureCard = ({
   return (
     <div className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between  overflow-hidden px-2 ">
 
-<div className="w-full aspect-square bg-white flex items-center justify-center overflow-hidden p-2">
+<div className="w-full aspect-square bg-white flex items-center justify-center overflow-hidden p-2  ">
   <img
     src={image}
     alt={title}

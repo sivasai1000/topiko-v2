@@ -31,6 +31,13 @@ import pinkarrow from "@/public/assets/images/pinkarrow.svg";
 import twitter from "@/public/assets/images/twitter.svg";
 import linkedin from "@/public/assets/images/linkedin.svg";
 import insta from "@/public/assets/images/instagram.svg";
+import topiko1 from "@/public/assets/images/topiko1.png";
+import topiko2 from "@/public/assets/images/topiko3.svg";
+import hebt2 from "@/public/assets/images/hebt2.svg";
+import flex2 from "@/public/assets/images/flex2.svg";
+import marketing2 from "@/public/assets/images/marketing2.svg";
+import brand from "@/public/assets/images/brand.svg"
+
 
 export default function Home() {
   const [activeSolution, setActiveSolution] = useState(null);
@@ -118,42 +125,39 @@ const handleToggle = (index) => {
   );
 };
 
-
-
-
   const cards = [
     {
-      image: disblayimg.src,
+      image: topiko1.src,
       title: "Disblay",
       description: "Share your products or services instantly with a beautiful, easy-to-use digital link.",
       button_title: "disblay",
     },
     {
-      image: topikoimg.src,
+      image: topiko2.src,
       title: "Topiko",
       description: "Create your complete digital presence — website, engagement tools, and CRM in one platform.",
       button_title: "topiko",
     },
     {
-      image: hebt.src,
+      image: hebt2.src,
       title: "HEBT Platform",
       description: "For businesses ready to scale — powerful, AI-driven systems built for performance.",
       button_title: "hebt",
     },
     {
-      image: fleximg.src,
+      image: flex2.src,
       title: "Topiko Flex",
       description: "Your brand, your app, your domain — we build it your way, fully customized.",
       button_title: "flex",
     },
     {
-      image: marketing.src,
+      image: marketing2.src,
       title: "Topiko Marketing Suite",
       description: "Reach new customers and grow faster with digital marketing that fits your goals.",
       button_title: "link",
     },
     {
-      image: Brandpreneuring.src,
+      image: brand.src,
       title: "Brandpreneuring",
       description: "Build your story, visuals, and identity into a brand that stands out.",
       button_title: "link",
