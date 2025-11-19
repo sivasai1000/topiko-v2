@@ -73,8 +73,8 @@ export default function VisitButton({
   return (
     <button
       onClick={onToggle}
-      className={`
-        relative flex items-center
+      className={` 
+        relative flex items-center cursor-pointer  
         h-[46px] md:h-[50px]
         rounded-[50px]
         border border-[#E2E4E97A]

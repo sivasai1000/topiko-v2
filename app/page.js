@@ -178,7 +178,9 @@ const handleToggle = (index) => {
       button_title: "disblay",
       icon: disblayicon,
       price: "₹1,499",
-      bgClass: "bg-gradient-to-r from-[#f7f7f7] to-[#80BAFF]",
+    bgClass: "bg-[linear-gradient(115deg,#ffffff_0%,#ffffff_40%,#eef4ff_75%,#d8e7ff_100%)]"
+
+
     },
     {
       image: topikoicon.src,
@@ -187,7 +189,8 @@ const handleToggle = (index) => {
       button_title: "topiko",
       icon: topikoicon,
       price: "₹4,999",
-      bgClass: "bg-gradient-to-r from-[#FAE8FF] to-[#F8EFFF]",
+      bgClass: "bg-[linear-gradient(115deg,#ffffff_0%,#ffffff_40%,#fae8ff_75%,#f8eaff_100%)]"
+
     },
     {
       image: flexicon.src,
@@ -196,7 +199,8 @@ const handleToggle = (index) => {
       button_title: "flex",
       icon: flexicon,
       price: "Starts ₹19,999",
-      bgClass: "bg-gradient-to-r from-[#FFF8E1] to-[#FFF3C4]",
+     bgClass: "bg-[linear-gradient(115deg,#ffffff_0%,#ffffff_40%,#fff8e1_75%,#fff3c4_100%)]"
+
     },
     {
       image: hebticon.src,
@@ -205,7 +209,9 @@ const handleToggle = (index) => {
       button_title: "hebt",
       icon: hebticon,
       price: "Fully Customized ",
-      bgClass: "bg-gradient-to-r from-[#EAE8FF] to-[#E6E8FF]",
+      bgClass: "bg-[linear-gradient(115deg,#ffffff_0%,#ffffff_40%,#eae8ff_75%,#e6e8ff_100%)]"
+      
+
     },
   ];
 
@@ -555,73 +561,74 @@ const storiesCol3 = stories.slice(8, 12);
     {/* Pricing Grid */}
     <Grid sm={1} md={2} lg={2} className="gap-8">
       {pricecards.map((card, index) => (
-        <Grid.Col key={index}>
-          <div
-            className={`relative rounded-2xl border border-gray-200 p-6 sm:p-7 flex flex-col justify-between ${card.bgClass}`}
-          >
-            {/* Header */}
-            <div className="mb-4 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
-              
-              {/* Icon + Title */}
-              <div className="flex items-center gap-3">
-                <div className="tp-icon-wrapper">
-                  <img src={card.image} alt={`${card.title} Icon`} className="w-14 h-14" />
-                </div>
-                <Text  as="h5" className="!text-start  ">
-                  {card.title}
-                </Text>
-              </div>
-
-              {/* Desktop Price */}
-              <div className="hidden sm:flex flex-row items-end gap-1 text-right">
-                <span className="text-2xl font-bold text-[#0E091F]">{card.price}</span>
-                {card.title !== "HEBT" && (
-                  <span className="text-sm font-normal text-gray-600">/year</span>
-                )}
-              </div>
-            </div>
-
-            {/* Bottom */}
-            <div className="flex flex-col sm:flex-row justify-between items-center gap-6">
-
-              {/* Description */}
-              <p className="text-base text-gray-700 flex-1">
-                {card.description}
-              </p>
-
-              {/* Desktop Button */}
-              <div className="hidden sm:flex">
-                <VisitButton
-                  isOn={activeSolution === index}
-                  onToggle={() => handleSolutionToggle(index)}
-                  label="Get Started"
-                />
-                
-              </div>
-
-              {/* MOBILE: Price + Button in one row */}
-              <div className="flex sm:hidden w-full justify-between items-center">
-
-                {/* Mobile Price */}
-                <span className="text-md font-bold text-[#0E091F]">
-                  {card.price}
-                  {card.title !== "HEBT" && (
-                    <span className="text-sm font-normal text-gray-600"> /year</span>
-                  )}
-                </span>
-
-                {/* Mobile Button */}
-                <VisitButton
-                  isOn={activeSolution === index}
-                  onToggle={() => handleSolutionToggle(index)}
-                  label="Get Started"
-                />
-
-              </div>
-
-            </div>
+       <Grid.Col key={index}>
+  {/* Outer white frame */}
+  <div className="rounded-3xl bg-white p-[6px] shadow-sm">
+    
+    {/* Inner gradient card */}
+    <div
+      className={`relative rounded-2xl p-3 sm:p-7 flex flex-col justify-between ${card.bgClass}`}
+    >
+      {/* Header */}
+      <div className="mb-4 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
+        
+        {/* Icon + Title */}
+        <div className="flex items-center gap-3">
+          <div className="tp-icon-wrapper">
+            <img src={card.image} alt={`${card.title} Icon`} className="w-14 h-14" />
           </div>
-        </Grid.Col>
+          <Text as="h5" className="!text-start">
+            {card.title}
+          </Text>
+        </div>
+
+        {/* Desktop Price */}
+        <div className="hidden sm:flex flex-row items-end gap-1 text-right">
+          <span className="text-2xl font-bold text-[#0E091F]">{card.price}</span>
+          {card.title !== "HEBT" && (
+            <span className="text-sm font-normal text-gray-600">/year</span>
+          )}
+        </div>
+      </div>
+
+      {/* Bottom */}
+      <div className="flex flex-col sm:flex-row justify-between items-center gap-6">
+
+        {/* Description */}
+        <p className="text-base text-gray-700 flex-1">
+          {card.description}
+        </p>
+
+        {/* Desktop Button */}
+        <div className="hidden sm:flex">
+          <VisitButton
+            isOn={activeSolution === index}
+            onToggle={() => handleSolutionToggle(index)}
+            label="Get Started"
+          />
+        </div>
+
+        {/* MOBILE: Price + Button */}
+        <div className="flex sm:hidden w-full justify-between items-center">
+          <span className="text-md font-bold text-[#0E091F]">
+            {card.price}
+            {card.title !== "HEBT" && (
+              <span className="text-sm font-normal text-gray-600"> /year</span>
+            )}
+          </span>
+
+          <VisitButton
+            isOn={activeSolution === index}
+            onToggle={() => handleSolutionToggle(index)}
+            label="Get Started"
+          />
+        </div>
+
+      </div>
+    </div>
+  </div>
+</Grid.Col>
+
       ))}
     </Grid>
   </Box>
