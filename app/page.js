@@ -664,7 +664,7 @@ const storiesCol3 = stories.slice(8, 12);
           });
         }
       }}
-      className={`flex-shrink-0 font-[Anek_Latin] font-semibold text-[14px] sm:text-[16px] md:text-[18px] 
+      className={`flex-shrink-0 font-[Anek_Latin] font-semibold text-[14px] sm:text-[16px] md:text-[18px] cursor-pointer
         px-4 sm:px-6 py-2 sm:py-3 rounded-full transition-all duration-300
         ${
           activeTab === tab
